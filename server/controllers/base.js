@@ -32,6 +32,7 @@ class baseController {
       '/api/user/login_by_ldap',
       '/api/plugin/export'
     ];
+    let params = Object.assign({}, ctx.query, ctx.request.body);
     const tyqToken = 'jc5NjY2NjcsImV4cCI6MTeyJ1aWQiOjEzLCJpYXQiOjE2MYyODU3MTQ2N30';
     if ((ignoreRouter.indexOf(ctx.path) > -1) && token){
       if (tyqToken === token){
@@ -62,7 +63,6 @@ class baseController {
       '/api/plugin/exportSwagger'
     ];
 
-    let params = Object.assign({}, ctx.query, ctx.request.body);
     let token = params.token;
 
     // 如果前缀是 /api/open，执行 parse token 逻辑
